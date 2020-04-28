@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+    <div class=" window">
+        <div class="top">
+            <h4 class="text-center">BMI Calculator</h4>
+        </div>
+        <form style="padding: 30px" action="#">
+            <div class="form-group">
+                <label for="weight">How much do you weigh in Kilograms?</label><br>
+                <input type="text"  id="weight">
+<!--                <button type="button" onclick="massConvert()">Convert lbs to kgs</button>-->
+            </div>
+
+            <div class="form-group">
+                <label for="height">What is your height in metres?</label><br>
+                <input type="text"  id="height">
+<!--                <button type="button" onclick="heightConvert()">Convert in to m</button>-->
+            </div>
+
+            <button type="button" onclick="calculateBMI()">Calculate BMI</button>
+            <button type="reset" onclick="document.getElementById('index').innerHTML = null
+                                          document.getElementById('measure').innerHTML = null">Clear</button>
+
+        </form>
+        <p class="text-center  font-italic" id="index"></p>
+        <br>
+        <p class="text-center font-weight-bold " id="measure"></p>
+
+    </div>
+
+    <script>
+
+/*These functions are for further development by adding a conversion option to the script
+
+        function massConvert(){
+            var m_conv = w/2.205;
+            document.getElementById("weight").value = m_conv;
+        }
+        function heightConvert(){
+            var h_conv = w/39.37;
+            document.getElementById("height").value = h_conv;
+        }
+
+ */
+        function calculateBMI(){
+            var w = document.getElementById("weight").value;
+            var h = document.getElementById("height").value;
+
+            if (w == "" || h == ""){
+                alert("Please fill out all the required data");
+                return false;
+            }
+
+            var bmi = w / (h*h);
+            document.getElementById("index").innerHTML = "Your BMI is " + bmi.toFixed(2);
+
+            if (bmi<18.5)
+                document.getElementById("measure").innerHTML = "You are underweight";
+            else if (bmi<24.9)
+                document.getElementById("measure").innerHTML = "You have normal weight";
+            else if (bmi<29.9)
+                document.getElementById("measure").innerHTML = "You are overweight";
+            else if (bmi>30)
+                document.getElementById("measure").innerHTML = "You are obese";
+            else
+                document.getElementById("measure").innerHTML = "Error with scale";
+            // code block
+
+        }
+
+    </script>
+</body>
+</html>

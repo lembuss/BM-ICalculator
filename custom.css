@@ -1,0 +1,24 @@
+body{
+    background-color: black;
+    justify-content: center;
+    display: flex;
+}
+.window{
+    margin-top: 80px;
+    background-color: white;
+    height: 400px;
+    width: 400px;
+    border-radius: 20px;
+}
+
+.top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    background-color: maroon;
+    color: white;
+    border-top-left-radius:inherit;
+    border-top-right-radius: inherit;
+}
